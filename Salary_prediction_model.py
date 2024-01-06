@@ -33,6 +33,23 @@ def checkcsv():
 
 
 
+#define display_and_select_csv function
+
+
+def display_and_select_csv(csv_files):
+    i=0
+    for file_name in csv_files:
+        print(i,'....',file_name)
+        i+=1
+    return csv_files[int(input("select csv file to create model"))]
+
+
+
+
+
+
+
+
 
 
 
@@ -41,11 +58,17 @@ def main():
     welcome()
     try:
         csv_files=checkcsv()
+        if csv_files=="No csv files in the directory":
+            raise FileNotFoundError("No csv files in the directory")
+        csv_file=display_and_select_csv(csv_files)
+        print(csv_file,'is selected')
+        
 
 
 
 
-    except
+    except FileNotFoundError:
+        print("No csv files in the directory")
         
 
 
