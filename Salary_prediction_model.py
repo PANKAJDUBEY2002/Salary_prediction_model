@@ -4,7 +4,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from sklearn.model_selection import train_test_split
 
 #define welcome function
 
@@ -70,8 +70,12 @@ def main():
 
      # obtaining x and y
         
-        x=dataset.iloc[:,:-1]                        
-        y=dataset.iloc[:,-1]
+        X=dataset.iloc[:,:-1]                        
+        Y=dataset.iloc[:,-1]
+    # split test and training data
+        s=float(input("Enter test data size (between 0 and 1)"))
+        X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=s)
+        
 
 
 
