@@ -62,7 +62,16 @@ def main():
             raise FileNotFoundError("No csv files in the directory")
         csv_file=display_and_select_csv(csv_files)
         print(csv_file,'is selected')
+        print('Reading csv file')
+        print('Creating dataset')
+    # create dataset by reading csv file
+        dataset=pd.read_csv(csv_file)
+        print('dataset is created')
+
+     # obtaining x and y
         
+        x=dataset.iloc[:,:-1]                        
+        y=dataset.iloc[:,-1]
 
 
 
@@ -79,6 +88,6 @@ def main():
 
 
 #flow of program
-if __name__=="Salary_prediction_model__" :
+if __name__=="__Salary_prediction_model__" :
     main()
     input()
